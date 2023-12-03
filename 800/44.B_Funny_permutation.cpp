@@ -31,40 +31,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int temp, n, a[600];
-
-void solve()
-{
-    scanf("%d", &n);
-    int x = 0, y = -1;
-    for (int i = 1; i <= n; i++)
-    {
-        scanf("%d", &a[i]);
-        
-        if (a[i] != i && x == 0)
-            x = i;
-        if (a[i] == x)
-            y = i;
-    }
-    for (; x < y; x++, y--){
-        temp = a[x];
-        a[x] = a[y];
-        a[y] = temp;
-    }
-
-    for (int i = 1; i <= n; i++)
-        printf("%d ", a[i]);
-    printf("\n");
-}
-
 int main()
 {
     int t;
-    scanf("%d", &t);
+    cin >> t;
 
     while (t--)
     {
-        solve();
+        int n;
+        cin >> n;
+
+        if (n == 3)
+        {
+            cout << -1 <<"\n";
+        }
+        else
+        {
+            for (int i = 3; i <= n; i++)
+            {
+                cout << i << " ";
+            }
+            cout << 2 << " " << 1 << "\n";
+        }
     }
 
     return 0;
