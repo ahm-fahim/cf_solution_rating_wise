@@ -1,3 +1,4 @@
+
 /****~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~****\
  |  Problems! Problems! Problems! I Don't Like It, I Avoid.             |
  |  But Problems Likes Me! I can't Avoid!                               |
@@ -33,5 +34,30 @@ using namespace std;
 
 int main()
 {
+    int a[5][5];
+
+    for (int i = 1; i <= 5; i++)
+    {
+        for (int j = 1; j <= 5; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
+
+    int x, y;
+    for (int i = 1; i <= 5; i++)
+    {
+        for (int j = 1; j <= 5; j++)
+        {
+            if (a[i][j] == 1)
+            {
+                x = i;
+                y = j;
+            }
+        }
+    }
+
+    cout << abs(3 - x) + abs(3 - y) << '\n';
+
     return 0;
 }
