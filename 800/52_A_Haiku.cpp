@@ -30,52 +30,44 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+#define optimize() ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define endl '\n';
+
+bool isVowel(char ch)
+{
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+}
 
 int main()
 {
-    int n;
-    cin >> n;
+    optimize();
 
-    vector<int> card(n);
+    vector<string> str;
 
-    for (int i = 0; i < n; i++)
-        cin >> card[i];
+    int cnt[] = {5, 7, 5};
 
-    int s = 0, d = 0, turn = 1;
-
-    while (!card.empty())
+    for (int i = 0; i < 3; i++)
     {
-        if (turn == 1)
-        {
-            if (card[0] > card.back())
-            {
-                s += card[0];
-                card.erase(card.begin());
-            }
-            else
-            {
-                s += card.back();
-                card.pop_back();
-            }
-            turn = 2;
-        }
-        else
-        {
-            if (card[0] > card.back())
-            {
-                d += card[0];
-                card.erase(card.begin());
-            }
-            else
-            {
-                d += card.back();
-                card.pop_back();
-            }
-            turn = 1; 
-        }
+        string s;
+        char c;
+        cin >> c;
+        getline(cin, s);
+        s = c + s;
+
+        str.push_back(s);
     }
 
-    cout << s << " " << d << "\n";
+    for (int i = 0; i < 3; i++)
+    {
+        int c = 0;
+
+        for (auto u : str[i])
+            c += (isVowel(u));
+
+        if (c != cnt[i])
+            return cout << "NO\n", 0;
+    }
+    cout << "YES\n";
 
     return 0;
 }

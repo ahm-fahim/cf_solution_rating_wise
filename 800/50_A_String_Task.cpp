@@ -30,52 +30,34 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+#define optimize() ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define endl '\n';
+
+bool isVowel(char ch)
+{
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'y');
+}
 
 int main()
 {
-    int n;
-    cin >> n;
+    optimize();
 
-    vector<int> card(n);
+    string str, ans;
 
-    for (int i = 0; i < n; i++)
-        cin >> card[i];
+    cin >> str;
 
-    int s = 0, d = 0, turn = 1;
-
-    while (!card.empty())
+    for (auto u : str)
     {
-        if (turn == 1)
+        char c = tolower(u);
+
+        if (isVowel(c) == 0)
         {
-            if (card[0] > card.back())
-            {
-                s += card[0];
-                card.erase(card.begin());
-            }
-            else
-            {
-                s += card.back();
-                card.pop_back();
-            }
-            turn = 2;
-        }
-        else
-        {
-            if (card[0] > card.back())
-            {
-                d += card[0];
-                card.erase(card.begin());
-            }
-            else
-            {
-                d += card.back();
-                card.pop_back();
-            }
-            turn = 1; 
+            ans += '.';
+            ans += c;
         }
     }
 
-    cout << s << " " << d << "\n";
+    cout << ans << endl;
 
     return 0;
 }

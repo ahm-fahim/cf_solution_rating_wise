@@ -19,7 +19,7 @@
  |  challenges, and effective teamwork make him a valuable              |
  |  asset to any project.                                               |
  |                                                                      |
- |  Fahim's love for coding, combined with his diverse interests,       |
+ |  Fahim's love for coding, combined with his diverse interests,       | 
  |  reflects his well-rounded personality, making him an inspiring      |
  |  figure in the programming community at Southeast University.```     |
  |                                                                      |
@@ -30,8 +30,13 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+#define optimize() ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define endl '\n';
 
 int main()
 {
+    optimize();
+    
+
     return 0;
 }

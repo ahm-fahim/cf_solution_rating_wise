@@ -30,52 +30,29 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+#define optimize() ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+#define endl '\n';
 
 int main()
 {
-    int n;
-    cin >> n;
+    optimize();
 
-    vector<int> card(n);
+    string s1, s2;
+    cin >> s1;
+    cin >> s2;
 
-    for (int i = 0; i < n; i++)
-        cin >> card[i];
+    for (int i = 0; i < s1.size(); i++)
+        s1[i] = tolower(s1[i]);
 
-    int s = 0, d = 0, turn = 1;
+    for (int i = 0; i < s2.size(); i++)
+        s2[i] = tolower(s2[i]);
 
-    while (!card.empty())
-    {
-        if (turn == 1)
-        {
-            if (card[0] > card.back())
-            {
-                s += card[0];
-                card.erase(card.begin());
-            }
-            else
-            {
-                s += card.back();
-                card.pop_back();
-            }
-            turn = 2;
-        }
-        else
-        {
-            if (card[0] > card.back())
-            {
-                d += card[0];
-                card.erase(card.begin());
-            }
-            else
-            {
-                d += card.back();
-                card.pop_back();
-            }
-            turn = 1; 
-        }
-    }
-
-    cout << s << " " << d << "\n";
+    if (s1 < s2)
+        cout << "-1\n";
+    else if (s1 > s2)
+        printf("1\n");
+    else
+        printf("0\n");
 
     return 0;
 }
